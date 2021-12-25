@@ -11,7 +11,7 @@ namespace ClassMethodDemo
         {
             foreach (var item in customers)
             {
-                Console.WriteLine(item.Name +" "+ item.Surname);
+                Console.WriteLine(item.Name +" "+ item.Surname+" "+item.Age);
             }
         }
         public void Delete(Customer customer)
