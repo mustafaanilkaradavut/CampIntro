@@ -23,5 +23,13 @@ namespace GenericIntro
             items[items.Length-1] = item;
         }
         
+        public int Length
+        {
+            get { return items.Length; }         // Eleman sayısını vermesi için yapılan işlemdir.
+        }
+        public T[] Items
+        {
+            get { return items; }                // String cinsinden verileri elde etmek için kullanılır.
+        }
     }
 }

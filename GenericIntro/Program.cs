@@ -9,7 +9,19 @@ namespace GenericIntro
             MyList<string> names = new MyList<string>();
             names.Add("Neyzen");
 
-            
+            Console.WriteLine(names.Length);
+
+            names.Add("Tevfik");
+
+            Console.WriteLine(names.Length);
+
+            foreach (var item in names.Items)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
 
         }
     }
