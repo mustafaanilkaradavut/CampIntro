@@ -15,6 +15,7 @@ namespace OOP3
 
             MortgageLoanManager mortgageLoanManager = new MortgageLoanManager();
             mortgageLoanManager.Calculate();
+
             
                         //                  YA DA !!!!!!!!!!!!!!!! 
             
@@ -22,14 +23,21 @@ namespace OOP3
             mortgageLoanManager.Calculate();
             // interfaceler onunla bağlı diğer verilerle işlenebilirler.
 
+            Console.WriteLine("-----------finish----------");
+
+            ILoggerService databaseLoggerService = new DatabaseLoggerService();
+            ILoggerService fileLoggerService = new FileLoggerService();
+            
+
 
             ApplicationManager applicationManager = new ApplicationManager();
-            applicationManager.Apply(consumerLoanManager);
-
+            applicationManager.Apply(consumerLoanManager, databaseLoggerService);
+            applicationManager.Apply(new WorkerLoanManager(), fileLoggerService);
+            applicationManager.Apply(new WorkerLoanManager(), new SmsLoggerService());
 
             List<ICreditManager> credits = new List<ICreditManager>() { mortagageLoanManager, vehicleLoanManager};
 
-            applicationManager.CreditInformation(credits);
+            // applicationManager.CreditInformation(credits);
         }
     }
 }

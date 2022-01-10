@@ -6,7 +6,7 @@ namespace OOP3
 {
     internal class ApplicationManager
     {
-        public void Apply(ICreditManager creditmanager) // Hepsinin referansını tuttuğu için interface'sini yazarız.
+        public void Apply(ICreditManager creditmanager, ILoggerService loggerService) // Hepsinin referansını tuttuğu için interface'sini yazarız.
         {
             // Başvuran bilgilerini değerlendir.
 
@@ -15,13 +15,16 @@ namespace OOP3
             // !!! Bu işlemde tüm başvurular MortgageLoan'a bağlı hale gelir. !!!! O yüzden yukarıdaki gibi interface bağlarız.
 
             creditmanager.Calculate();
+            loggerService.Log();
+            // Method Injection
         }
         public void CreditInformation(List<ICreditManager> credits)  // Birden fazla işlem ve bilgilendirme için.
         {
             foreach (var credit in credits)    // Listede bir sürü eleman olduğundan her birini dönmesi için yaparız.
             {
                 credit.Calculate();
+                credit.DoSomething();
             }
         }
     }
-}
+} 

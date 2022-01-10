@@ -35,6 +35,7 @@ namespace OOP2 // Object Oriented Programming  --- Nesne Yönelimli Programalama
             CustomerManager customerManager = new CustomerManager();
             customerManager.Add(customer1);
             customerManager.Add(customer2);
+
         }
     }
 }
